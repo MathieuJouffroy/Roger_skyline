@@ -110,10 +110,10 @@ uncomment line ```# PermitRootLogin restrict-password``` and replace ```restrict
 
 *To allow SSH access via publickeys ONLY*
 
-uncomment line ```# PubkeyAuthentication yes```
+uncomment line ```# PubkeyAuthentication yes```<br>
 line ```# PasswordAuthentication yes``` replace ```yes``` by ```no```
-
-then restart the ssh service
+<br>
+Restart the ssh service
 ```
 $ sudo uservice sshd restart
 ```
