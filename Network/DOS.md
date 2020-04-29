@@ -101,9 +101,9 @@ Verify firewall rules (list):
 $ sudo fail2ban-client status 
 ```
 <br>
-edit /etc/ssh/sshd_config :
-line ```# PubkeyAuthentication yes``` replace ```yess``` by ```no```
-line ```# PasswordAuthentication no``` replace ```no``` by ```yess```
+edit /etc/ssh/sshd_config :<br>
+line ```# PubkeyAuthentication yes``` replace ```yess``` by ```no```<br>
+line ```# PasswordAuthentication no``` replace ```no``` by ```yess```<br>
 then restart the ssh service:
 ```
 sudo service sshd restart
