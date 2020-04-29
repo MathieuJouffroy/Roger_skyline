@@ -96,7 +96,7 @@ And restart the service
 sudo service fail2ban restart
 ```
 
-Verify firewall rules (list):
+### Verify firewall rules (list):
 ```
 $ sudo fail2ban-client status 
 ```
@@ -107,7 +107,7 @@ then restart the ssh service:
 ```
 sudo service sshd restart
 ```
-- Try to connect via ssh to the machine with wrong login/password until blocked (IP from the machine that will be blocked).
+Try to connect via ssh to the machine with wrong login/password until blocked (IP from the machine that will be blocked).
 To unblock IP address, in the VM verify if ipaddress is in banned section
 ```
 $ sudo fail2ban-client status sshd
