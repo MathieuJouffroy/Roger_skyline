@@ -1,4 +1,6 @@
 ## You have to set the rules of your firewall on your server only with the services used outside the VM.
+https://opensource.com/article/18/9/linux-iptables-firewalld <br>
+
 I will use iptables.<br>
 
 *Installing iptables-persistent to make the rule change permanent*
