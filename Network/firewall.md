@@ -43,9 +43,9 @@ Add rules directly by editing to the files ```/etc/iptables/rules.v4``` or ```/e
 # TIME PORT
 -A INPUT -i enp0s3 -p udp -m udp --dport 123 -j ACCEPT
 ```
-To save them directly from these files:
+Save:
 ```
-$ sudo service netfilter-persistent reload
+$ sudo service netfilter-persistent reload # or $ sudo service netfilter-persistent save
 ```
 Verify:
 ```
