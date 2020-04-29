@@ -96,7 +96,18 @@ And restart the service
 sudo service fail2ban restart
 ```
 
-Verify firewall rules:
+Verify firewall rules (list):
+```
+$ sudo fail2ban-client status 
+```
+<br>
+edit /etc/ssh/sshd_config :
+line ```# PubkeyAuthentication yes``` replace ```yess``` by ```no```
+line ```# PasswordAuthentication no``` replace ```no``` by ```yess```
+then restart the ssh service:
+```
+sudo service sshd restart
+```
 - Try to connect via ssh to the machine with wrong login/password until blocked (IP from the machine that will be blocked).
 To unblock IP address, in the VM verify if ipaddress is in banned section
 ```
@@ -106,10 +117,23 @@ Unban ip address:
 ```
 $ sudo fail2ban-client set sshd unbanip your_ip_address
 ```
+Verify:
+```
+$ sudo fail2ban-client status sshd
+```
 Restart fail2ban:
 ```
-sudo service fail2ban restart
+$ sudo service fail2ban restart
 ```
+
+re-edit /etc/ssh/sshd_config :
+line ```# PubkeyAuthentication no``` replace ```no``` by ```yess```
+line ```# PasswordAuthentication yess``` replace ```yess``` by ```no```
+then restart the ssh service:
+```
+$ sudo service sshd restart
+```
+
 
 ## DDOS protection on open ports of your VM. (aka multiple attacks)
 I will use iptables
