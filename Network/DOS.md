@@ -184,8 +184,10 @@ then reboot
 sudo reboot
 ```
 You can use slowlowris to verify<br>
-On your machine (host terminal) and when in network's available host:
+On your machine and when in network's available host:
 ```
+host terminal
+ 
 $ slowloris 10.0.2.15
 ```
 To give back access to the machine that has been blocked :
