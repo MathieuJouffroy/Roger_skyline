@@ -79,7 +79,9 @@ or
 $ ls /etc/init.d
 ```
 ```
-$ sudo systemctl disable XXXXXXX
+$ sudo systemctl disable bluetooth.service
+$ sudo systemctl disable console-setup.service
+$ sudo systemctl disable keyboard-setup.service
 ```
 
 Mandatory :<br>
