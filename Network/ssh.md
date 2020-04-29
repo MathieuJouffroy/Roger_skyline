@@ -8,7 +8,7 @@ login as root and add user to sudo group:
 $ ssh root@server_ip_address
 $ usermod -aG sudo username
 ```
-switch to new sudo user and verify sudo access
+switch to new sudo user and verify sudo access:
 ```
 $ su - username
 $ sudo whoami
@@ -63,8 +63,8 @@ $ sudo systemctl status ssh
 ```
 $ sudo vim /etc/ssh/sshd_config
 ```
-uncomment line ```# Port 22``` and change the ```22``` as ```22222``` (or any other available port number)
-uncomment line ```# PasswordAuthentication yes```
+uncomment line ```# Port 22``` and change the ```22``` as ```22222``` (or any other available port number).<br>
+uncomment line ```# PasswordAuthentication yes```.
 ```
 $ sudo service sshd restart
 ```
@@ -74,15 +74,46 @@ $ sudo ssh mat@10.0.2.15 -p 2222
 $ sudo systemctl status ssh
 ```
 ### Connect via SSH to the VM on your machine
-Test the ssh conection from host. We need to setup SSH public key authentication
-*Generate a publickey to access VM via SSH from machine (host terminal)*
-```
-# host terminal
-
-$ ssh-keygen -t rsa
-```
 To connect 2 interfaces they must be in one subnet<br>
 On the VM 2 ip adresses are allowed (netmask /30): 10.0.2.15(ip addr that we set) and 10.0.2.14(for host).<br>
 Set up the ip addr to the host:<br>
 ***System Preferences*** -> ***Network*** -> ***Advanced*** -> ***TCP/IP*** -> ***Select Manual*** -> ***Enter the new ip addr (10.0.2.14)*** -> ***Apply***.
+```
+# host terminal
 
+$ ping 10.0.2.15
+$ ssh mat@10.0.2.15 -p 2222
+$ exit (logout from the ssh)
+```
+#### SSH access HAS TO be done with publickeys.
+Test the ssh conection from host. We need to setup SSH public key authentication.
+*Generate a publickey to access VM via SSH from machine (host terminal)*
+```
+# host terminal
+
+$ ssh-keygen
+```
+Copy the publickey (host) into the VM publickeys file:
+```
+# host terminal
+
+$ cd .ssh/ && ssh-copy-id -i id_rsa.pub mst@10.0.2.15 -p 2222
+```
+**Verify on VM that the new file ** *authorized_keys* **has been created in folder** *.ssh/*
+
+#### SSH root access SHOULD NOT be allowed directly, but with a user who can be root.
+*To forbid root to connect via SSH*
+```
+$ sudo vim /etc/ssh/sshd_config
+```
+uncomment line ```# PermitRootLogin restrict-password``` and replace ```restrict-password``` by ```no```
+
+*To allow SSH access via publickeys ONLY*
+
+uncomment line ```# PubkeyAuthentication yes```
+line ```# PasswordAuthentication yes``` replace ```yes``` by ```no```
+
+then restart the ssh service
+```
+$ sudo uservice sshd restart
+```
