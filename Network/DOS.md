@@ -1,8 +1,8 @@
 ## You have to set a DOS (Denial Of Service Attack) protection on your open ports of your VM.
 ### You can also set DDOS(Distributed Denial of Service)
-https://bobcares.com/blog/centos-ddos-protection/
-https://www.garron.me/en/go2linux/fail2ban-protect-web-server-http-dos-attack.html
-https://www.supinfo.com/articles/single/2660-proteger-votre-vps-apache-avec-fail2ban
+https://bobcares.com/blog/centos-ddos-protection/<br>
+https://www.garron.me/en/go2linux/fail2ban-protect-web-server-http-dos-attack.html<br>
+https://www.supinfo.com/articles/single/2660-proteger-votre-vps-apache-avec-fail2ban<br>
 
 I will use Fail2Ban
 ```
