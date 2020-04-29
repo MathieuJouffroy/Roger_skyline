@@ -68,8 +68,16 @@ sudo reboot
 ```
 
 ## Stop the services you don’t need for this project.
-`systemctl list-unit-files | grep enabled`
-`sudo systemctl disable XXXXXXX`
+```
+$ sudo systemctl list-unit-files | grep enabled
+```
+or 
+```
+$ ls /etc/init.d
+```
+```
+$ sudo systemctl disable XXXXXXX
+```
 
 Mandatory :
 autovt@.service #Necessary for using virtual terminals
