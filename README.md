@@ -13,22 +13,17 @@ Create a virtual hard disk :
 - Logical partition : 4.1 GB
 - Packages : web server, ssh server, standard system utilities
 - Install GRUB boot loader to the master boot record ? Yes
-  
-Package to install : 
-apt install sudo
-apt install net-tools (for ifconfig)
-apt install vim
 
 ## Part 2 : Network
-- Create non-root sudo user : (adduser username) $usermod -aG sudo username	
+- Create non-root sudo user : (adduser username) 
 - Configure DHCP service to have static address & netmask in /30 (etc/network/interfaces)
 - Change the default port of the SSH service by the one of your choice. SSH access HAS TO be done with publickeys.
 SSH root access SHOULD NOT be allowed directly, but with a user who can be root. (etc/ssh/sshd_config)
 - Firewall : on your server only with the services used outside the VM.
-Installing iptables-persistent to make the rule change permanent : sudo apt-get install iptables-persistent 
+Installing iptables-persistent to make the rule change permanent.
 
 ## Part 3 : Security
-Installing protection against DOS attacks on open ports : sudo apt install fail2ban
+Installing protection against DOS attacks on open ports (fail2ban)
 - DOS : (Denial O Service Attack) protection on your open ports of your VM.
 - Set a protection against scans on your VM’s open ports.
 - Stop the services you don’t need for this project.
