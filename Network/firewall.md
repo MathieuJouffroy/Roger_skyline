@@ -30,7 +30,7 @@ $ sudo service netfilter-persistent save
 Add rules directly by editing to the files ```/etc/iptables/rules.v4``` or ```/etc/iptables/rules.v6```. I added the following rules
 ```
 # SSH CONNECTION
--A INPUT -i enp0s3 -p tcp -m tcp --dport 24 -j ACCEPT
+-A INPUT -i enp0s3 -p tcp -m tcp --dport 2222 -j ACCEPT
 
 # WEB PORTS
 -A INPUT -i enp0s3 -p tcp -m tcp --dport 80 -j ACCEPT
