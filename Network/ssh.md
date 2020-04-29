@@ -99,7 +99,7 @@ Copy the publickey (host) into the VM publickeys file:
 
 $ cd .ssh/ && ssh-copy-id -i id_rsa.pub mst@10.0.2.15 -p 2222
 ```
-**Verify on VM that the new file ** *authorized_keys* **has been created in folder** *.ssh/*
+**Verify on VM that the new file** *authorized_keys* **has been created in folder** *.ssh/*
 
 #### SSH root access SHOULD NOT be allowed directly, but with a user who can be root.
 *To forbid root to connect via SSH*
