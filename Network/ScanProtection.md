@@ -80,10 +80,10 @@ $ sudo systemctl disable XXXXXXX
 ```
 
 Mandatory :
-autovt@.service #Necessary for using virtual terminals
-cron.service #Scheduled tasks
-fail2ban.service #Protection against DOS
-getty@.service #Necessary for login
-networking.service #Network
-ssh.service #Needed for SSH connection
-sshd.service #Needed for SSH connection
+autovt@.service #Necessary for using virtual terminals<br>
+cron.service #Scheduled tasks<br>
+fail2ban.service #Protection against DOS<br>
+getty@.service #Necessary for login<br>
+networking.service #Network<br>
+ssh.service #Needed for SSH connection<br>
+sshd.service #Needed for SSH connection<br>
