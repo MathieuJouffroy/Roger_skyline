@@ -86,8 +86,8 @@ $ ssh mat@10.0.2.15 -p 2222
 $ exit (logout from the ssh)
 ```
 #### SSH access HAS TO be done with publickeys.
-Test the ssh conection from host. We need to setup SSH public key authentication.
-*Generate a publickey to access VM via SSH from machine (host terminal)*
+Test the ssh conection from host.<br>
+We need to setup SSH public key authentication to access the VM via SSH from machine (host terminal)
 ```
 # host terminal
 
