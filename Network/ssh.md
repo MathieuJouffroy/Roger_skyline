@@ -115,5 +115,5 @@ line ```# PasswordAuthentication yes``` replace ```yes``` by ```no```
 <br>
 Restart the ssh service
 ```
-$ sudo uservice sshd restart
+$ sudo service sshd restart
 ```
