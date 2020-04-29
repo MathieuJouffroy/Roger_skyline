@@ -62,10 +62,25 @@ $ sudo systemctl status ssh
 
 ```
 $ sudo vim /etc/ssh/sshd_config
+```
 uncomment line ```# Port 22``` and change the ```22``` as ```22222``` (or any other available port number)
 uncomment line ```# PasswordAuthentication yes
+```
 $ sudo service sshd restart
 ```
+login with ssh and check status of our connection:
+```
+$ sudo ssh mat@10.0.2.15 -p 2222
+$ sudo systemctl status ssh
+```
+### Connect via SSH to the VM on your machine
+Test the ssh conection from host. We need to setup SSH public key authentication
+*Generate a publickey to access VM via SSH from machine (host terminal)*
+```
+# host terminal
 
-### Connect on your machine via SSH to the VM
+$ ssh-keygen -t rsa
+```
+to connect 2 interfaces they must be in one subnet; on the VM 2 ip adresses are allowed (netmask /30): 10.0.2.15(ip addr that we set) and 10.0.2.14(for host).
+Set up the ip addr to the host: ***System Preferences*** -> ***Network*** -> ***Advanced*** -> ***TCP/IP*** -> ***Select Manual*** -> ***Enter the new ip addr (10.0.2.14)*** -> ***Apply***.
 
