@@ -33,9 +33,9 @@ $ sudo /etc/init.d/portsentry start
 portsentry logs are in the /var/log/syslog file.
 
 <br>
-To make sure our own IP address doesn't get banned add IP address in file below:
+To make sure our own IP address doesn't get banned add IP address in file below:<br>
 ```
-sudo vim /etc/portsentry/portsentry.ignore.static
+$ sudo vim /etc/portsentry/portsentry.ignore.static
 ```
 then restart the portsentry service :
 ```
