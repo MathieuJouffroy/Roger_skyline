@@ -79,7 +79,7 @@ $ ls /etc/init.d
 $ sudo systemctl disable XXXXXXX
 ```
 
-Mandatory :
+Mandatory :<br>
 autovt@.service #Necessary for using virtual terminals<br>
 cron.service #Scheduled tasks<br>
 fail2ban.service #Protection against DOS<br>
