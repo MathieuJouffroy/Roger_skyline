@@ -42,9 +42,9 @@ auto enp0s3
 allow-hotplug enp0s3
 iface enp0s3 inet static
 address 		10.0.2.15   	# IP address of VM
-netmask         255.255.255.252 # Netmask /30
+netmask     255.255.255.252 # Netmask /30
 gateway 		10.0.2.2     	# Gateway address of VM
-broadcast 		10.0.2.255      # Broadcast address of VM
+broadcast 	10.0.2.255      # Broadcast address of VM
 ```
 then restart the network service and verify:
 ```
