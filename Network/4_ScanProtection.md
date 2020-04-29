@@ -51,7 +51,7 @@ nmap -Pn 10.0.2.15
 ```
 *You should get kicked out from the VM if you were connected via ssh*
 
-To deleting your IP address from the denied hosts file
+To deleting your IP address from the denied hosts file:
 ```
 sudo vim /etc/hosts.deny
 ```
