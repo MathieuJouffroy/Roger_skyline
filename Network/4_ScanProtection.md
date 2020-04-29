@@ -71,7 +71,15 @@ sudo reboot
 
 ## Stop the services you don’t need for this project.
 ```
-$ sudo systemctl list-unit-files | grep enabled
+$ sudo systemctl list-unit-files --state=enabled
+```
+or 
+```
+$ sudo systemctl list-units -t service
+```
+or
+```
+$ sudo service --status-all
 ```
 or 
 ```
