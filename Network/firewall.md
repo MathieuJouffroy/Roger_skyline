@@ -45,14 +45,14 @@ Add rules directly by editing to the files ```/etc/iptables/rules.v4``` or ```/e
 ```
 To save them directly from these files:
 ```
-sudo service netfilter-persistent reload
+$ sudo service netfilter-persistent reload
 ```
 Verify:
 ```
-sudo sudo iptables -L  # or sudo iptables -S
+$ sudo iptables -L  # or sudo iptables -S
 ```
 Verify tcp port:<br>
 netstat [address_family_options] [--tcp|-t] [--listening|-l] [--program|-p] [--numeric|-n] 
 ```
-sudo netstat -tlpn # sudo netstat -tlpn | grep 2222
+$ sudo netstat -tlpn # sudo netstat -tlpn | grep 2222
 ```
