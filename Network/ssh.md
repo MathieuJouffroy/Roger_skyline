@@ -81,6 +81,8 @@ Test the ssh conection from host. We need to setup SSH public key authentication
 
 $ ssh-keygen -t rsa
 ```
-to connect 2 interfaces they must be in one subnet; on the VM 2 ip adresses are allowed (netmask /30): 10.0.2.15(ip addr that we set) and 10.0.2.14(for host).
-Set up the ip addr to the host: ***System Preferences*** -> ***Network*** -> ***Advanced*** -> ***TCP/IP*** -> ***Select Manual*** -> ***Enter the new ip addr (10.0.2.14)*** -> ***Apply***.
+To connect 2 interfaces they must be in one subnet<br>
+On the VM 2 ip adresses are allowed (netmask /30): 10.0.2.15(ip addr that we set) and 10.0.2.14(for host).<br>
+Set up the ip addr to the host:<br>
+***System Preferences*** -> ***Network*** -> ***Advanced*** -> ***TCP/IP*** -> ***Select Manual*** -> ***Enter the new ip addr (10.0.2.14)*** -> ***Apply***.
 
