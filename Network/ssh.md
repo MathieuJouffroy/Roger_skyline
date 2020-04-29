@@ -1,5 +1,5 @@
 ## Create non-root user to connect to machine
-install `sudo`, (for root privileges):
+install `sudo` (for root privileges):
 ```
 $ apt install sudo
 ```
@@ -7,7 +7,7 @@ login as root and add user to sudo group:
 ```
 $ ssh root@server_ip_address
 $ usermod -aG sudo username
-
+```
 switch to new sudo user and verify sudo access
 ```
 $ su - username
