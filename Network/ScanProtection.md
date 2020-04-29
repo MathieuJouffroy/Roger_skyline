@@ -55,8 +55,11 @@ To deleting your IP address from the denied hosts file
 ```
 sudo vim /etc/hosts.deny
 ```
-Delete IP address of the machine from which you did the *nmap*
-
+Delete IP address of the machine from which you did the *nmap*<br>
+you should have in the file : 
+```
+ALL: 10.0.2.14 : DENY
+```
 Then, we need to delete our ban from the iptables
 ```
 sudo iptables -D INPUT 1
