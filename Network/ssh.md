@@ -64,7 +64,7 @@ $ sudo systemctl status ssh
 $ sudo vim /etc/ssh/sshd_config
 ```
 uncomment line ```# Port 22``` and change the ```22``` as ```22222``` (or any other available port number)
-uncomment line ```# PasswordAuthentication yes
+uncomment line ```# PasswordAuthentication yes```
 ```
 $ sudo service sshd restart
 ```
