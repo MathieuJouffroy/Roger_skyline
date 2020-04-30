@@ -43,7 +43,7 @@ filter   = apache-auth
 logpath  = /var/log/apache2/*error.log
 maxretry = 3
 bantime  = 600
-ignoreip = 10.0.2.15
+ignoreip = 192.168.1.74
 
 # DOS protection
 [apache-dos]
@@ -56,14 +56,14 @@ maxretry = 300
 bantime  = 600
 findtime = 300
 action   = iptables[name=HTTP, port=http, protocol=tcp]
-ignoreip = 10.0.2.15
+ignoreip = 192.168.1.74
 
 # in sections [apache-badbots] [apache-noscript] [apache-overflows], add:
 
 enabled  = true
 filter   = section-name
 logpath  = /var/log/apache2/*error.log
-ignoreip = 10.0.2.15
+ignoreip = 192.168.1.74
 ```
 Now we need to create the filter:
 Create *apache-dos.conf* file in **/etc/fail2ban/filter.d** folder:
@@ -193,7 +193,7 @@ On your machine and when in network's available host:
 ```
 host terminal
  
-$ slowloris 10.0.2.15
+$ slowloris 192.168.1.74
 ```
 To give back access to the machine that has been blocked :
 ```
