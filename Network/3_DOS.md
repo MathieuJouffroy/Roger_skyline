@@ -18,8 +18,9 @@ This file can be modified by package upgrades so we will keep a copy of it as ja
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 $ sudo vim /etc/fail2ban/jail.local
 ```
-in ```SSH SERVERS SECTION```
-replace all ```port = ssh``` by ```port = 2222```
+in ``` JAILS ``` under ```SSH SERVERS SECTION```
+replace all ```port = ssh``` by ```port = 2222```<br>
+add:
 ```
 [sshd]
 
