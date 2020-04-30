@@ -10,12 +10,18 @@ the first TCP and UDP lines (the highest protection)<br>
 the second TCP and UDP lines (average protection)
 
 modify the file /etc/default/portsentry:
-replace
+```
+$ sudo vim /etc/default/portsentry
+```
+replace:
 ```TCP_MODE="tcp"``` by ```TCP_MODE="atcp"```
 ```UDP_MODE="udp"``` by ```UDP_MODE="audp"```
 
 We also wish that portsentry is a blockage. We therefore need to activate it by passing BLOCK_UDP and BLOCK_TCP to 1.<br>
 modify /etc/portsentry/portsentry.conf:
+```
+$ sudo vim /etc/portsentry/portsentry.conf
+```
 replace
 ```BLOCK_UDP="0"``` by ```BLOCK_UDP="1"```
 ```BLOCK_TCP="0"``` by ```BLOCK_TCP="1"```
