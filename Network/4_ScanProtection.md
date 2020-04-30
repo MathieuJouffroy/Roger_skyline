@@ -6,7 +6,7 @@ $ sudo apt install portsentry
 $ sudo vim /etc/portsentry/portsentry.conf
 ```
 chose one below:<br>
-the first TCP and UDP lines (the highest protection)
+the first TCP and UDP lines (the highest protection)<br>
 the second TCP and UDP lines (average protection)
 
 replace
