@@ -16,7 +16,7 @@ Fail2Ban keeps its configuration files in /etc/fail2ban folder. The configuratio
 This file can be modified by package upgrades so we will keep a copy of it as jail.local and edit it.
 ```
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-$ sudo vim /etc/fail2ban/fail2ban.local
+$ sudo vim /etc/fail2ban/jail.local
 ```
 in ```SSH SERVERS SECTION```
 replace all ```port = ssh``` by ```port = 2222```
