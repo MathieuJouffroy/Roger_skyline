@@ -1,6 +1,5 @@
 ### Before creating your VM:<br>
-VirtualBox settings -> Network -> change ***NAT*** on ***Bridged Adapter***.
-(useful for setting static IP and Netmask \30 with host machine)
+VirtualBox settings -> Network -> change ***NAT*** on ***Bridged Adapter***. This will be useful for setting a static IP and Netmask \30 with the host machine.
 
 ## Create non-root user to connect to machine
 install `sudo` (for root privileges):
