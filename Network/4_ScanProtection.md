@@ -54,7 +54,7 @@ sudo service portsentry restart
 From a machine:
 ```
 [host terminal]
-nmap -Pn 10.0.2.15
+nmap -Pn 192.168.1.2.74
 ```
 *You should get kicked out from the VM if you were connected via ssh*
 
@@ -65,7 +65,7 @@ sudo vim /etc/hosts.deny
 Delete IP address of the machine from which you did the *nmap*<br>
 you should have in the file : 
 ```
-ALL: 10.0.2.14 : DENY
+ALL: 192.168.1.2.73 : DENY
 ```
 Then, we need to delete our ban from the iptables
 ```
