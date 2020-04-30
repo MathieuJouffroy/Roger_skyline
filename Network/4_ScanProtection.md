@@ -46,7 +46,8 @@ $ sudo vim /etc/portsentry/portsentry.ignore.static
 ```
 then restart the portsentry service :
 ```
-sudo service portsentry restart
+$ sudo service portsentry restart
+$ sudo iptables -L -n -v
 ```
 
 *To check if portscan protection applied*
@@ -54,13 +55,13 @@ sudo service portsentry restart
 From a machine:
 ```
 [host terminal]
-nmap -Pn 192.168.1.2.74
+$ nmap -Pn 192.168.1.2.74
 ```
 *You should get kicked out from the VM if you were connected via ssh*
 
 To deleting your IP address from the denied hosts file:
 ```
-sudo vim /etc/hosts.deny
+$ sudo vim /etc/hosts.deny
 ```
 Delete IP address of the machine from which you did the *nmap*<br>
 you should have in the file : 
@@ -69,12 +70,12 @@ ALL: 192.168.1.2.73 : DENY
 ```
 Then, we need to delete our ban from the iptables
 ```
-sudo iptables -D INPUT 1
-sudo iptables -D INPUT 1
+$ sudo iptables -D INPUT 1
+$ sudo iptables -D INPUT 1
 ```
 then reboot
 ```
-sudo reboot
+$ sudo reboot
 ```
 
 ## Stop the services you don’t need for this project.
