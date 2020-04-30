@@ -47,7 +47,6 @@ $ sudo vim /etc/portsentry/portsentry.ignore.static
 then restart the portsentry service :
 ```
 $ sudo service portsentry restart
-$ sudo iptables -L -n -v
 ```
 
 *To check if portscan protection applied*
