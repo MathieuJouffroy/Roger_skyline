@@ -1,3 +1,6 @@
+### Before creating your VM:<br>
+VirtualBox settings -> Network -> change ***NAT*** on ***Bridged Adapter***.
+
 ## Create non-root user to connect to machine
 install `sudo` (for root privileges):
 ```
@@ -15,8 +18,6 @@ $ sudo whoami
 ```
 
 ## We don’t want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
-
-VirtualBox settings -> Network -> change ***NAT*** on ***Bridged Adapter***.
 I will use ifconfig for the configuration (install net-tools and vim):
 ```
 $ apt install net-tools
