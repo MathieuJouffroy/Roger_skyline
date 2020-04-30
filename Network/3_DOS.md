@@ -197,7 +197,7 @@ $ slowloris 192.168.1.74
 ```
 To give back access to the machine that has been blocked :
 ```
-$ sudo iptables -L # sudo iptables -S of see banned ip
+$ sudo iptables -L -v # sudo iptables -S  to see banned IP
 $ sudo fail2ban-client set apache-dos unbanip your_ipaddress
 $ sudo service fail2ban restart
 ```
