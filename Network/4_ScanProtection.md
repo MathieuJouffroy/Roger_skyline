@@ -9,6 +9,7 @@ chose one below:<br>
 the first TCP and UDP lines (the highest protection)<br>
 the second TCP and UDP lines (average protection)
 
+modify the file /etc/default/portsentry:
 replace
 ```TCP_MODE="tcp"``` by ```TCP_MODE="atcp"```
 ```UDP_MODE="udp"``` by ```UDP_MODE="audp"```
