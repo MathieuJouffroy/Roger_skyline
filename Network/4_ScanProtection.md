@@ -5,7 +5,7 @@ https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsent
 $ sudo apt install portsentry
 $ sudo vim /etc/portsentry/portsentry.conf
 ```
-chose one below:
+chose one below:<br>
 the first TCP and UDP lines (the highest protection)
 the second TCP and UDP lines (average protection)
 
