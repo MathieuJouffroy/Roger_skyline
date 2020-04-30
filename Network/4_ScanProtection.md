@@ -5,8 +5,9 @@ https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsent
 $ sudo apt install portsentry
 $ sudo vim /etc/portsentry/portsentry.conf
 ```
-Uncomment the first TCP and UDP lines (the highest protection)
-Comment the second TCP and UDP lines (average protection)
+chose one below:
+the first TCP and UDP lines (the highest protection)
+the second TCP and UDP lines (average protection)
 
 replace
 ```TCP_MODE="tcp"``` by ```TCP_MODE="atcp"```
