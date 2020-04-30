@@ -1,5 +1,6 @@
 ### Before creating your VM:<br>
 VirtualBox settings -> Network -> change ***NAT*** on ***Bridged Adapter***.
+(useful for setting static IP and Netmask \30 with host machine)
 
 ## Create non-root user to connect to machine
 install `sudo` (for root privileges):
@@ -18,6 +19,11 @@ $ sudo whoami
 ```
 
 ## We don’t want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
+http://droptips.com/cidr-subnet-masks-and-usable-ip-addresses-quick-reference-guide-cheat-sheet<br>
+https://ressourcesinformatiques.com/article.php?article=6121<br>
+The /30 signifies that the network part of the address is 30 bits long, leaving 2 bits for the host part which equals 4 available addresses.<br>
+On a /30 network you have 4 IPs available. Minus off 2 IPs for network ID and broadcast and it leaves you with 2 usable IPs.
+
 I will use ifconfig for the configuration (install net-tools and vim):
 ```
 $ apt install net-tools
@@ -28,7 +34,7 @@ Get IP address and network information of VM:
 ```
 $ sudo ifconfig
 ```
-*My ip address: 10.0.2.15*
+*ip address: 192.168.1.74*
 
 We can see that our `bridged adapter` is ***enp0s3***. 
 *Setup static service instead of DHCP*
@@ -42,15 +48,18 @@ add these lines :
 auto enp0s3
 allow-hotplug enp0s3
 iface enp0s3 inet static
-address     10.0.2.15       # IP address of VM
+address     192.168.1.74    # VM IP address
 netmask     255.255.255.252 # Netmask /30
-gateway     10.0.2.2        # Gateway address of VM
-broadcast   10.0.2.255      # Broadcast address of VM
+gateway     192.168.1.254   # VM Gateway address
+broadcast   192.168.1.255   # VM Broadcast address
 ```
-then restart the network service and verify:
+Restart the network service and verify:
 ```
 $ sudo service networking restart
 $ sudo ifconfig
+$ sudo ip a | grep -A2 enp0s3:
+$ sudo ip r
+$ ping 8.8.8.8
 ```
 
 ## Change the default port of the SSH service by the one of your choice. SSH access HAS TO be done with publickeys. SSH root access SHOULD NOT be allowed directly, but with a user who can be root.
@@ -71,19 +80,19 @@ $ sudo service sshd restart
 ```
 login with ssh and check status of our connection:
 ```
-$ sudo ssh mat@10.0.2.15 -p 2222
+$ sudo ssh mat@192.168.1.74 -p 2222
 $ sudo systemctl status ssh
 ```
 ### Connect via SSH to the VM on your machine
 To connect 2 interfaces they must be in one subnet<br>
-On the VM 2 ip adresses are allowed (netmask /30): 10.0.2.15(ip addr that we set) and 10.0.2.14(for host).<br>
+On the VM 2 ip adresses are allowed (netmask /30): 192.168.1.74 (ip addr that we set) and 192.168.1.73 (for host).<br>
 Set up the ip addr to the host:<br>
-***System Preferences*** -> ***Network*** -> ***Advanced*** -> ***TCP/IP*** -> ***Select Manual*** -> ***Enter the new ip addr (10.0.2.14)*** -> ***Apply***.
+***System Preferences*** -> ***Network*** -> ***Advanced*** -> ***TCP/IP*** -> ***Configure IPv4*** -> ***Using DHCP with manual address*** -> ***Enter the new ip addr (192.168.1.73)*** -> ***Apply***.
 ```
 # host terminal
 
-$ ping 10.0.2.15
-$ ssh mat@10.0.2.15 -p 2222
+$ ping 192.168.1.74
+$ ssh mat@192.168.1.74 -p 2222
 $ exit (logout from the ssh)
 ```
 #### SSH access HAS TO be done with publickeys.
@@ -98,7 +107,7 @@ Copy the publickey (host) into the VM publickeys file:
 ```
 # host terminal
 
-$ cd .ssh/ && ssh-copy-id -i id_rsa.pub mst@10.0.2.15 -p 2222
+$ cd .ssh/ && ssh-copy-id -i id_rsa.pub mat@192.168.1.74 -p 2222
 ```
 **Verify on VM that the new file** *authorized_keys* **has been created in folder** *.ssh/*
 
