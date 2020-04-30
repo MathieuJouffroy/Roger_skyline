@@ -171,8 +171,8 @@ sudo iptables -t mangle -A PREROUTING -s 224.0.0.0/3 -j DROP
 sudo iptables -t mangle -A PREROUTING -s 169.254.0.0/16 -j DROP
 sudo iptables -t mangle -A PREROUTING -s 172.16.0.0/12 -j DROP
 sudo iptables -t mangle -A PREROUTING -s 192.0.2.0/24 -j DROP
-sudo iptables -t mangle -A PREROUTING -s 192.168.0.0/16 -j DROP
-### sudo iptables -t mangle -A PREROUTING -s 10.0.0.0/8 -j DROP      # NOT this one as our IP is: 10.0.2.15
+### sudo iptables -t mangle -A PREROUTING -s 192.168.0.0/16 -j DROP  # NOT this one as our IP is: 192.168.1.74
+sudo iptables -t mangle -A PREROUTING -s 10.0.0.0/8 -j DROP      
 sudo iptables -t mangle -A PREROUTING -s 0.0.0.0/8 -j DROP
 sudo iptables -t mangle -A PREROUTING -s 240.0.0.0/5 -j DROP
 sudo iptables -t mangle -A PREROUTING -s 127.0.0.0/8 ! -i lo -j DROP
