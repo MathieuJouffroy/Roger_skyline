@@ -20,8 +20,8 @@ $ sudo iptables -L -v # -L(list) -v(detailed format)
 
 *Add rules to the firewall*
 
-1. allow all traffic for ssh port (because we want to be able to connect through ssh), here port 2222<br>
-and save it as permanent
+Allow all traffic for ssh port (because we want to be able to connect through ssh), here port 2222<br>
+and save it as permanent:
 ```
 $ sudo iptables -A INPUT -p tcp -i enp0s3 --dport 2222 -j ACCEPT
 $ sudo service netfilter-persistent save
