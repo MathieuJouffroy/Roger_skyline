@@ -53,7 +53,7 @@ sudo service portsentry restart
 
 From a machine:
 ```
-host terminal
+[host terminal]
 nmap -Pn 10.0.2.15
 ```
 *You should get kicked out from the VM if you were connected via ssh*
