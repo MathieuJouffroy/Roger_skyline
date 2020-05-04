@@ -20,8 +20,9 @@ $ sudo whoami
 ## We don’t want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
 http://droptips.com/cidr-subnet-masks-and-usable-ip-addresses-quick-reference-guide-cheat-sheet<br>
 https://ressourcesinformatiques.com/article.php?article=6121<br>
-The /30 signifies that the network part of the address is 30 bits long, leaving 2 bits for the host part which equals 4 available addresses.<br>
-On a /30 network you have 4 IPs available. Minus off 2 IPs for network ID and broadcast and it leaves you with 2 usable IPs.
+https://www.aelius.com/njh/subnet_sheet.html<br>
+The /30 signifies that the network part of the address is 30 bits long, leaving 2 bits for the host part which equals 4 available addresses. The corresponding netmask is 255.255.255.252 (32-bit netmask is 255.255.255.255, 24-bit is 255.255.255.0)<br>
+On a /30 network you have 4 available IPs. Minus off 2 IPs for network ID and broadcast which leaves you with 2 usable IPs.
 
 I will use ifconfig for the configuration (install net-tools and vim):
 ```
