@@ -69,4 +69,6 @@ add following:<br>
 ```
 Redirect "/" "https://192.168.1.74/"
 ```
+You can transfer files from your host machine to the VM<br>
+https://www.linux.com/topic/desktop/how-securely-transfer-files-between-servers-scp/ 
 
