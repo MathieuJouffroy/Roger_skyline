@@ -29,7 +29,7 @@ SSLStaplingCache "shmcb:logs/stapling-cache(150000)"
 # Requires Apache >= 2.4.11
 SSLSessionTickets Off
 ```
-- Modify the included SSL Apache Virtual Host file to point to our generated SSL certificates.
+- Modify the included SSL Apache Virtual Host (Default) file to point to our generated SSL certificates.
 ```
 $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 ```
@@ -59,7 +59,7 @@ add following:<br>
         </VirtualHost>
 </IfModule>
 ```
-- Modify the unencrypted Virtual Host file to automatically redirect requests to the encrypted Virtual Host.
+- Modify the HTTP Host File to Redirect to HTTPS:
 ```
 $ sudo vim /etc/apache2/sites-available/000-default.conf
 ```
