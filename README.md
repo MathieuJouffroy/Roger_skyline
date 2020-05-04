@@ -29,5 +29,7 @@ Installing protection against DOS attacks on open ports (fail2ban)
 - Stop the services you don’t need for this project.
 
 ## Part 4 : Script
+Manage cron jobs
 
 ## Part 5 : Web Server
+Set a web server who available on the VM’s IP or a host
