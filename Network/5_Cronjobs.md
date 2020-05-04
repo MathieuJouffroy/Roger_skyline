@@ -28,3 +28,23 @@ add:<br>
 @reboot /home/mat/auto_update.sh
 
 ```
+
+## Make a script to monitor changes of the /etc/crontab file and sends an email to root if it has been modified. Create a scheduled script task every day at midnight.
+
+```
+$ sudo vim cron_changes.sh
+```
+in the file add:<br>
+```
+#!/bin/bash
+
+sudo crontab -l > /etc/cron_status
+diff /etc/cron_status /etc/cron_backups > /dev/null 2>&1
+#echo "this is a test" | mail -s "test" root@localhost
+# if last command not equal to 0
+if [ $? -ne 0  ]
+then
+	echo "The crontab file has been modified\n" | mail -s "Crontab" root@localhost
+	cp /etc/cron_status /etc/cron_backups
+fi
+```
