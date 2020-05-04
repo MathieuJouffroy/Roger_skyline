@@ -12,6 +12,59 @@ $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/priv
 #### Configure Apache tu use SSL:
 We have created our key and certificate files under the /etc/ssl directory.
 - Create configuration snippet to specify strong default SSL settings.
+```
+$ sudo vim /etc/apache2/conf-available/ssl-params.conf
+```
+add following:<br>
+```
+SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+SSLProtocol All -SSLv2 -SSLv3 
+SSLHonorCipherOrder On
+Header always set X-Frame-Options DENY
+Header always set X-Content-Type-Options nosniff
+# Requires Apache >= 2.4
+SSLCompression off
+SSLUseStapling on
+SSLStaplingCache "shmcb:logs/stapling-cache(150000)"
+# Requires Apache >= 2.4.11
+SSLSessionTickets Off
+```
 - Modify the included SSL Apache Virtual Host file to point to our generated SSL certificates.
+```
+$ sudo vim /etc/apache2/sites-available/default-ssl.conf
+```
+add following:<br>
+```
+<IfModule mod_ssl.c>
+        <VirtualHost _default_:443>
+                ServerAdmin root@localhost
+                ServerName 192.168.1.74
+                DocumentRoot /var/www/html
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                SSLEngine on
+
+                SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
+                SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+
+                <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                SSLOptions +StdEnvVars
+                </FilesMatch>
+                <Directory /usr/lib/cgi-bin>
+                                SSLOptions +StdEnvVars
+                </Directory>
+
+        </VirtualHost>
+</IfModule>
+```
 - Modify the unencrypted Virtual Host file to automatically redirect requests to the encrypted Virtual Host.
+```
+$ sudo vim /etc/apache2/sites-available/000-default.conf
+```
+add following:<br>
+```
+Redirect "/" "https://192.168.1.74/"
+```
 
