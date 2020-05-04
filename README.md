@@ -31,7 +31,6 @@ Installing protection against DOS attacks on open ports (fail2ban)
 ## Part 4 : Script
 -  updates all the sources of the packages and create a scheduled task for this script once a week at 4AM and every time the machine reboots
 -  monitor changes of the /etc/crontab file and send an email to root if it has been modified and create a scheduled script task every day at midnight.
-Manage cron jobs
 
 ## Part 5 : Web Server
 Set a web server available on the VM’s IP or a host
