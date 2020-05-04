@@ -16,7 +16,7 @@ Create a virtual hard disk :
 
 ## Part 2 : Network
 - Create non-root sudo user : (adduser username) 
-- Configure DHCP service to have static address & netmask in /30 (etc/network/interfaces)
+- Configure network service to have static address & netmask in /30 (etc/network/interfaces)
 - Change the default port of the SSH service by the one of your choice. SSH access HAS TO be done with publickeys.
 SSH root access SHOULD NOT be allowed directly, but with a user who can be root. (etc/ssh/sshd_config)
 - Firewall : on your server only with the services used outside the VM.
