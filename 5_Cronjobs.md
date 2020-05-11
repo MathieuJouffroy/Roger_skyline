@@ -5,6 +5,7 @@ http://crontab.org/crontab.1.html<br>
 
 ```
 $ sudo vim auto_update.sh
+$ sudo chmod a+x auto_update.sh
 ```
 in the file add:<br>
 ```
@@ -33,7 +34,9 @@ add:<br>
 
 ```
 $ sudo vim cron_changes.sh
+$ sudo chmod a+x cron_changes.sh
 ```
+
 in the file add:<br>
 ```
 #!/bin/bash
