@@ -54,7 +54,7 @@ $ sudo service portsentry restart
 From a machine:
 ```
 [host terminal]
-$ nmap -Pn 192.168.1.2.74
+$ nmap -Pn 192.168.1.74
 ```
 *You should get kicked out from the VM if you were connected via ssh*
 
