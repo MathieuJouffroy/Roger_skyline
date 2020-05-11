@@ -202,3 +202,4 @@ $ sudo iptables -L -v # sudo iptables -S  to see banned IP
 $ sudo fail2ban-client set apache-dos unbanip your_ipaddress
 $ sudo service fail2ban restart
 ```
+you can verify /etc/hosts.deny
